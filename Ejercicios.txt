@@ -1,0 +1,151 @@
+1 CLASIFICAR NUMEROS POSITIVOS, NEGATIVOS Y CERO
+num<-1
+while(num<=10){
+  numero <- as.numeric(readline(prompt = "Ingrese numero: "))
+  if (numero > 0 ) {
+    print(paste(numero, " es positivo"))
+  }else if(numero < 0){
+    print(paste(numero, " es negativo"))
+  }
+  else{
+    print(paste(numero, "es cero"))
+  }
+}
+
+
+2 CALCULAR PARES E IMPARES
+numeros <- sample(1:100, 100)
+par <- c()
+impar <- c()
+for (i in 1:100) {
+  if (numeros[i] %% 2 == 0) {
+    par <- c(par, numeros[i]) 
+  } else {
+    impar <- c(impar, numeros[i])  
+  }
+}
+
+cat("Pares:", par, "\n")
+cat("Impares:", impar, "\n")
+
+
+3 SUMA DE PRIMEROS N NUMEROS
+n <- as.integer(readline(prompt = "Ingrese número: "))
+sum <- 0
+for (i in 1:n) {
+  sum <- sum + i
+}
+cat("La suma de números", n, "es:", sum)
+
+
+4 SECUENCIA FIBONACCI
+a <- 0
+b <- 1
+cat(a, b)
+contar <- 2
+while (contar < 20) {
+  sig <- a + b
+  cat(" ", sig)
+  a <- b
+  b <- sig
+    contar <- contar + 1
+}
+
+
+5 CALCULAR FACTORIAL
+n <- as.integer(readline(prompt = "Ingresa un numero: "))
+fact <- 1
+for (i in 1:n) {
+  fact <- fact * i
+}
+cat("El factorial de", n, "es:", fact, "\n")
+
+
+6 ADIVINA EL NUMERO
+num_secret <- sample(1:100, 1)
+adivi <- 0
+while(adivi != num_secret) {
+  cat("Ingresa un número entre 1 y 100: ")
+  adivi <- as.integer(readLines(con = stdin(), n = 1))
+  if(adivi > num_secret) {
+    cat("El número es mayor que el número secreto.\n")
+  } else if(adivi < num_secret) {
+    cat("El número es menor que el número secreto.\n")
+  } else {
+    cat("¡Felicidades! Adivinaste el número secreto.\n")
+  }
+}
+
+
+7 VALIDAR CONTRASEÑA
+contra_correct <- "857412369"
+intent <- 0
+max_intent <- 3
+contra_ingre <- ""
+
+while(contra_ingre != contra_correct && intent < max_intent) {
+  intent <- intent + 1
+  
+  cat("Ingresa contraseña: ")
+  contra_ingre <- readLines(con = stdin(), n = 1)
+  
+  if(contra_ingre == contra_correct) {
+    cat("¡Acceso concedido!\n")
+  } else {
+    cat("Contraseña incorrecta. Intento", intent, "de", max_intent, "\n")
+  }
+  if(contra_ingre != contra_correct && intent == max_intent) {
+    cat("Usted fue bloqueado. Has superado los", max_intent, "intentos permitidos")
+  }
+}
+
+
+8 SUMA DE DIGITOS NUMEROS
+numero <- NA
+sum_digit <- 0
+while (TRUE) {
+  cat("Ingresa un número: ")
+  entrada <- readLines(con = stdin(), n = 1)
+  numero <- as.integer(entrada)
+  
+  if (!is.na(numero)) {  
+    while (numero > 0) {
+      sum_digit <- suma_digitos + (numero %% 10)  
+      numero <- numero %/% 10  
+    }
+    break
+  } else {
+    cat("Ingrese un número válido.\n")
+  }
+}
+cat("La suma de los dígitos es:", sum_digit, "\n")
+
+
+9 IMPRESION DE PATRONES
+filas <- 6
+for (i in 1:filas) {
+  for (j in 1:(filas - i)) {
+    cat(" ") 
+  }
+  for (k in 1:(2 * i - 1)) {
+    cat("*") 
+  }
+  cat("\n")
+}
+
+
+10 NUMEROS PRIMOS
+for (num in 2:100) {  
+  es_primo <- TRUE  
+  for (i in 2:sqrt(num)) {  
+    if (num %% i == 0) {  
+      es_primo <- FALSE
+      break  
+    }
+  }
+  if (es_primo) {  
+    cat(num, "es primo\n")
+  }
+}
+
+
